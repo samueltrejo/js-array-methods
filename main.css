@@ -1,3 +1,13 @@
 body {
   background-color: antiquewhite;
 }
+
+#the-bus {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bus-seat {
+  background: white;
+  border-radius: 15px;
+}
