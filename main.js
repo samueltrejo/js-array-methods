@@ -11,6 +11,9 @@ const addPassenger = (name, wallet, isStruggling, seat) => {
     strugglesBus.push(passenger);
   } else if (seat === 'front') {
     strugglesBus.unshift(passenger);
+  } else if (seat === 'middle') {
+    let position = Math.ceil(strugglesBus.length / 2);
+    strugglesBus.splice(position, 0, passenger);
   }
 };
 
@@ -52,16 +55,18 @@ const printToDom = (divID, textToPrint) => {
 };
 
 const init = () => {
-  addPassenger('Michael', 20, true, 'front');
-  addPassenger('Zoe', 20, false, 'back');
-  addPassenger('Greg', 4, false, 'back');
-  addPassenger('Michael', 20, true, 'front');
-  addPassenger('Zoe', 20, false, 'back');
-  addPassenger('Michael', 2, true, 'front');
+  addPassenger('Person 1', 20, true, 'front');
+  addPassenger('Person 2', 20, false, 'front');
+  addPassenger('Person 3', 20, false, 'front');
+  // addPassenger('Person 4', 20, true, 'front');
+  // addPassenger('Person 5', 20, false, 'front');
+  // addPassenger('Person 6', 20, true, 'front');
+  // addPassenger('Person 7', 20, true, 'front');
+  addPassenger('middle dude', 20, true, 'middle');
 
   //const firstPassenger = unloadPassenger(strugglesBus, 'front');
 
-  const busPeople = allAboard(strugglesBus);
+  const busPeople = allAboard(strugglesBus, 20, true, 'front');
   //console.log(busPeople);
 
   busBuilder(busPeople);
